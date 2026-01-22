@@ -50,18 +50,56 @@ src/
 │   ├── cabinet/
 │   └── admin/
 ├── widgets/          # Composite UI blocks
+│   ├── header/       # App header with navigation
+│   ├── layout/       # Page layouts
+│   └── theme-switcher/ # Dark/light mode toggle
 ├── features/         # User interactions
 │   ├── auth/         # Authentication feature
 │   ├── session/      # Session management
 │   └── toast/        # Toast notifications
 ├── entities/         # Business entities
+│   └── user/         # User entity (api, ui)
 └── shared/           # Reusable code without business logic
     ├── api/          # API client
     ├── config/       # Environment, routes
+    ├── hooks/        # Custom React hooks
     ├── lib/          # Utilities
+    ├── mocks/        # MSW handlers for BFF
     ├── types/        # Shared types
-    └── ui/           # UI components (Button, Input, etc.)
+    └── ui/           # UI component library
 ```
+
+## UI Components
+
+| Component | Description |
+|-----------|-------------|
+| Button | Primary actions with variants |
+| Input | Text input with validation |
+| Textarea | Multiline text input |
+| Select | Dropdown selection |
+| Checkbox | Toggle options |
+| Card | Content container |
+| Modal | Dialog overlay with focus trap |
+| Tabs | Tabbed content |
+| Table | Data display |
+| Badge | Status indicators |
+| Alert | Notifications |
+| Dropdown | Context menus |
+| Tooltip | Hover hints |
+| Avatar | User images with fallback |
+| Skeleton | Loading placeholders |
+| ErrorBoundary | Error handling |
+| PageLoader | Loading states |
+
+## Custom Hooks
+
+| Hook | Description |
+|------|-------------|
+| useDisclosure | Modal/dropdown state |
+| useMediaQuery | Responsive breakpoints |
+| useDebounce | Input optimization |
+| useLocalStorage | Persistence |
+| useTheme | Dark mode toggle |
 
 ## Environment Variables
 
