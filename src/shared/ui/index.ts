@@ -4,3 +4,8 @@ export { ErrorBoundary } from './ErrorBoundary';
 export { PageLoader } from './PageLoader';
 export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './Card';
 export { Modal } from './Modal';
+export { Select } from './Select';
+export { Checkbox } from './Checkbox';
+export { Tabs, TabsList, TabsTrigger, TabsContent } from './Tabs';
+export { Badge } from './Badge';
+export { Skeleton, SkeletonCard, SkeletonAvatar } from './Skeleton';

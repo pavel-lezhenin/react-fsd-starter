@@ -5,6 +5,7 @@ import { Button } from '@shared/ui';
 import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { UserAvatar } from '@entities/user';
+import { ThemeSwitcher } from '@widgets/theme-switcher';
 
 export function Header(): JSX.Element {
   const location = useLocation();
@@ -47,7 +48,9 @@ export function Header(): JSX.Element {
           )}
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ThemeSwitcher />
+
           {isAuthenticated && user ? (
             <Link to={ROUTES.CABINET} className="flex items-center gap-2">
               <UserAvatar user={user} size="sm" />
