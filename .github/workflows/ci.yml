@@ -49,11 +49,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Gitleaks scan
+      - name: Gitleaks scan (action)
         if: github.event_name != 'repository_dispatch'
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Gitleaks scan (CLI for dispatch)
+        if: github.event_name == 'repository_dispatch'
+        run: |
+          curl -sSfL https://github.com/gitleaks/gitleaks/releases/download/v8.18.0/gitleaks_8.18.0_linux_x64.tar.gz | tar xz
+          ./gitleaks detect --source . --verbose
 
       - uses: pnpm/action-setup@v4
 
