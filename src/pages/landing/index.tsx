@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '@shared/ui';
 import { ROUTES } from '@shared/config';
+import { MainLayout } from '@widgets/layout';
 
 export default function LandingPage(): JSX.Element {
   return (
-    <main id="main-content" className="flex min-h-screen flex-col">
+    <MainLayout showHeader={false}>
       <header className="border-b px-6 py-4">
         <nav className="mx-auto flex max-w-7xl items-center justify-between">
           <span className="text-xl font-bold">React FSD Starter</span>
@@ -20,7 +21,7 @@ export default function LandingPage(): JSX.Element {
         </nav>
       </header>
 
-      <section className="flex flex-1 flex-col items-center justify-center px-6 text-center">
+      <section className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
         <h1 className="mb-6 text-5xl font-bold">
           Enterprise-Ready React Template
         </h1>
@@ -43,10 +44,6 @@ export default function LandingPage(): JSX.Element {
           </a>
         </div>
       </section>
-
-      <footer className="border-t px-6 py-4 text-center text-sm text-secondary">
-        © 2024 React FSD Starter. MIT License.
-      </footer>
-    </main>
+    </MainLayout>
   );
 }

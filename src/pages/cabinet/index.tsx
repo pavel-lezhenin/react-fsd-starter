@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '@shared/ui';
+import { Button, Card, CardHeader, CardTitle, CardContent } from '@shared/ui';
 import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { useToast } from '@features/toast';
+import { MainLayout } from '@widgets/layout';
 
 export default function CabinetPage(): JSX.Element {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ export default function CabinetPage(): JSX.Element {
   };
 
   return (
-    <main id="main-content" className="min-h-screen p-6">
-      <div className="mx-auto max-w-4xl">
+    <MainLayout>
+      <div className="mx-auto max-w-4xl px-4 py-8">
         <header className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Personal Cabinet</h1>
@@ -31,27 +32,33 @@ export default function CabinetPage(): JSX.Element {
         </header>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border p-6">
-            <h2 className="mb-4 text-xl font-semibold">Profile</h2>
-            <dl className="space-y-2">
-              <div>
-                <dt className="text-sm text-secondary">Name</dt>
-                <dd className="font-medium">{user?.name}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-secondary">Email</dt>
-                <dd className="font-medium">{user?.email}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-secondary">Role</dt>
-                <dd className="font-medium capitalize">{user?.role}</dd>
-              </div>
-            </dl>
-          </div>
+          <Card>
+            <CardHeader>
+              <CardTitle>Profile</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <dl className="space-y-2">
+                <div>
+                  <dt className="text-sm text-secondary">Name</dt>
+                  <dd className="font-medium">{user?.name}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-secondary">Email</dt>
+                  <dd className="font-medium">{user?.email}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-secondary">Role</dt>
+                  <dd className="font-medium capitalize">{user?.role}</dd>
+                </div>
+              </dl>
+            </CardContent>
+          </Card>
 
-          <div className="rounded-lg border p-6">
-            <h2 className="mb-4 text-xl font-semibold">Quick Actions</h2>
-            <div className="space-y-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>Quick Actions</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
               <Button variant="outline" className="w-full">
                 Edit Profile
               </Button>
@@ -61,10 +68,10 @@ export default function CabinetPage(): JSX.Element {
               <Button variant="outline" className="w-full">
                 Notification Settings
               </Button>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
-    </main>
+    </MainLayout>
   );
 }

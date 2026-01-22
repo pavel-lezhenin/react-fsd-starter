@@ -1,9 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '@shared/ui';
+import { Button, Card, CardHeader, CardTitle, CardDescription, CardContent } from '@shared/ui';
 import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { useToast } from '@features/toast';
+import { MainLayout } from '@widgets/layout';
 
 export default function AdminDashboard(): JSX.Element {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ export default function AdminDashboard(): JSX.Element {
   };
 
   return (
-    <main id="main-content" className="min-h-screen p-6">
-      <div className="mx-auto max-w-6xl">
+    <MainLayout>
+      <div className="mx-auto max-w-6xl px-4 py-8">
         <header className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold">Admin Dashboard</h1>
@@ -36,25 +37,35 @@ export default function AdminDashboard(): JSX.Element {
         </header>
 
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg border p-6">
-            <h2 className="text-sm text-secondary">Total Users</h2>
-            <p className="mt-2 text-3xl font-bold">1,234</p>
-          </div>
-          <div className="rounded-lg border p-6">
-            <h2 className="text-sm text-secondary">Active Sessions</h2>
-            <p className="mt-2 text-3xl font-bold">567</p>
-          </div>
-          <div className="rounded-lg border p-6">
-            <h2 className="text-sm text-secondary">Revenue</h2>
-            <p className="mt-2 text-3xl font-bold">$12,345</p>
-          </div>
+          <Card>
+            <CardHeader>
+              <CardDescription>Total Users</CardDescription>
+              <CardTitle as="h2" className="text-3xl">1,234</CardTitle>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardDescription>Active Sessions</CardDescription>
+              <CardTitle as="h2" className="text-3xl">567</CardTitle>
+            </CardHeader>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardDescription>Revenue</CardDescription>
+              <CardTitle as="h2" className="text-3xl">$12,345</CardTitle>
+            </CardHeader>
+          </Card>
         </div>
 
-        <div className="mt-8 rounded-lg border p-6">
-          <h2 className="mb-4 text-xl font-semibold">Recent Activity</h2>
-          <p className="text-secondary">No recent activity to display.</p>
-        </div>
+        <Card className="mt-8">
+          <CardHeader>
+            <CardTitle>Recent Activity</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-secondary">No recent activity to display.</p>
+          </CardContent>
+        </Card>
       </div>
-    </main>
+    </MainLayout>
   );
 }
