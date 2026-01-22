@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.turbo/
+coverage/
+*.local
+.env
+.env.*
+!.env.example
+storybook-static/
+playwright-report/
+test-results/
