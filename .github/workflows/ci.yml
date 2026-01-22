@@ -114,6 +114,9 @@ jobs:
 
       - run: pnpm install
 
+      - name: Create .env from example
+        run: cp .env.example .env
+
       - name: Install Playwright
         run: pnpm exec playwright install --with-deps chromium
 
@@ -160,6 +163,9 @@ jobs:
           cache: 'pnpm'
 
       - run: pnpm install
+
+      - name: Create .env from example
+        run: cp .env.example .env
 
       - name: Build
         run: pnpm build
