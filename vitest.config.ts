@@ -2,6 +2,12 @@ import { defineConfig } from 'vitest/config';
 import { resolve } from 'node:path';
 
 export default defineConfig({
+  define: {
+    'import.meta.env.VITE_API_URL': JSON.stringify('http://localhost:3000/api'),
+    'import.meta.env.VITE_PORT': JSON.stringify('3000'),
+    'import.meta.env.VITE_PREVIEW_PORT': JSON.stringify('4173'),
+    'import.meta.env.VITE_ENABLE_MSW': JSON.stringify('false'),
+  },
   test: {
     globals: true,
     environment: 'jsdom',
