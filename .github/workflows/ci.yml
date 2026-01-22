@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [main]
   repository_dispatch:
-    types: [parent_repo_update]
+    types: [parent_trigger, parent_repo_update]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
