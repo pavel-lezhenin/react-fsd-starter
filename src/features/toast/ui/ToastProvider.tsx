@@ -45,10 +45,7 @@ export function ToastProvider({ children }: ToastProviderProps): JSX.Element {
   return (
     <>
       {children}
-      <div
-        className="fixed bottom-4 right-4 z-50 flex flex-col gap-2"
-        aria-label="Notifications"
-      >
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2" aria-label="Notifications">
         {toasts.map((toast) => (
           <ToastItem key={toast.id} toast={toast} />
         ))}

@@ -64,10 +64,7 @@ function DismissableAlertDemo(): JSX.Element {
 
   if (!show) {
     return (
-      <button
-        onClick={() => setShow(true)}
-        className="text-primary underline"
-      >
+      <button onClick={() => setShow(true)} className="text-primary underline">
         Show alert again
       </button>
     );

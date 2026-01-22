@@ -9,7 +9,15 @@ export { Checkbox } from './Checkbox';
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './Tabs';
 export { Badge } from './Badge';
 export { Skeleton, SkeletonCard, SkeletonAvatar } from './Skeleton';
-export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableCaption } from './Table';
+export {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+} from './Table';
 export { Alert } from './Alert';
 export { Dropdown, DropdownItem, DropdownSeparator, DropdownLabel } from './Dropdown';
 export { Tooltip } from './Tooltip';

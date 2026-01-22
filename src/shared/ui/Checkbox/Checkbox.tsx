@@ -29,13 +29,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         {(label || description) && (
           <div className="space-y-1">
             {label && (
-              <label htmlFor={checkboxId} className="text-sm font-medium leading-none cursor-pointer">
+              <label
+                htmlFor={checkboxId}
+                className="cursor-pointer text-sm font-medium leading-none"
+              >
                 {label}
               </label>
             )}
-            {description && (
-              <p className="text-sm text-secondary">{description}</p>
-            )}
+            {description && <p className="text-sm text-secondary">{description}</p>}
           </div>
         )}
       </div>

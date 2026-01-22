@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '@features/toast';
 import { ROUTES } from '@shared/config';
 
-
 import { useSessionStore } from './sessionStore';
 
 const SESSION_CHECK_INTERVAL = 60 * 1000; // 1 minute

@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastProvider } from '@features/toast/ui/ToastProvider';
 import { ErrorBoundary } from '@shared/ui/ErrorBoundary';
 
-
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -25,7 +24,12 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+        <BrowserRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
           <ToastProvider>{children}</ToastProvider>
         </BrowserRouter>
       </QueryClientProvider>

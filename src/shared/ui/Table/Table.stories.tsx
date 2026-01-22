@@ -2,7 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Badge } from '@shared/ui/Badge';
 
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell, TableCaption } from './Table';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+} from './Table';
 
 const meta: Meta<typeof Table> = {
   title: 'Shared/UI/Table',

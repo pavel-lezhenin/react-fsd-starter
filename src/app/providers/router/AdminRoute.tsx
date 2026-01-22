@@ -2,7 +2,6 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 import { useSessionStore } from '@features/session/model/sessionStore';
 
-
 export function AdminRoute(): JSX.Element {
   const isAuthenticated = useSessionStore((state) => state.isAuthenticated);
   const user = useSessionStore((state) => state.user);

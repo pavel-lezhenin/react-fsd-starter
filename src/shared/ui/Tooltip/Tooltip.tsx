@@ -19,9 +19,11 @@ const positionStyles = {
 
 const arrowStyles = {
   top: 'top-full left-1/2 -translate-x-1/2 border-t-foreground border-x-transparent border-b-transparent',
-  bottom: 'bottom-full left-1/2 -translate-x-1/2 border-b-foreground border-x-transparent border-t-transparent',
+  bottom:
+    'bottom-full left-1/2 -translate-x-1/2 border-b-foreground border-x-transparent border-t-transparent',
   left: 'left-full top-1/2 -translate-y-1/2 border-l-foreground border-y-transparent border-r-transparent',
-  right: 'right-full top-1/2 -translate-y-1/2 border-r-foreground border-y-transparent border-l-transparent',
+  right:
+    'right-full top-1/2 -translate-y-1/2 border-r-foreground border-y-transparent border-l-transparent',
 };
 
 export function Tooltip({
@@ -67,13 +69,7 @@ export function Tooltip({
           )}
         >
           {content}
-          <div
-            className={cn(
-              'absolute border-4',
-              arrowStyles[position]
-            )}
-            aria-hidden="true"
-          />
+          <div className={cn('absolute border-4', arrowStyles[position])} aria-hidden="true" />
         </div>
       )}
     </div>

@@ -8,10 +8,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 export function Card({ children, className, ...props }: CardProps): JSX.Element {
   return (
-    <div
-      className={cn('rounded-lg border bg-background p-6 shadow-sm', className)}
-      {...props}
-    >
+    <div className={cn('rounded-lg border bg-background p-6 shadow-sm', className)} {...props}>
       {children}
     </div>
   );
@@ -34,7 +31,12 @@ interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {
   readonly as?: 'h1' | 'h2' | 'h3' | 'h4';
 }
 
-export function CardTitle({ children, className, as: Component = 'h3', ...props }: CardTitleProps): JSX.Element {
+export function CardTitle({
+  children,
+  className,
+  as: Component = 'h3',
+  ...props
+}: CardTitleProps): JSX.Element {
   return (
     <Component className={cn('text-lg font-semibold', className)} {...props}>
       {children}
@@ -46,7 +48,11 @@ interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {
   readonly children: ReactNode;
 }
 
-export function CardDescription({ children, className, ...props }: CardDescriptionProps): JSX.Element {
+export function CardDescription({
+  children,
+  className,
+  ...props
+}: CardDescriptionProps): JSX.Element {
   return (
     <p className={cn('text-sm text-secondary', className)} {...props}>
       {children}

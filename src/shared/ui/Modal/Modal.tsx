@@ -1,6 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 
-
 import { createPortal } from 'react-dom';
 
 import { cn } from '@shared/lib';
@@ -14,7 +13,13 @@ interface ModalProps {
   readonly className?: string;
 }
 
-export function Modal({ isOpen, onClose, title, children, className }: ModalProps): JSX.Element | null {
+export function Modal({
+  isOpen,
+  onClose,
+  title,
+  children,
+  className,
+}: ModalProps): JSX.Element | null {
   const modalRef = useRef<HTMLDivElement>(null);
   const previousActiveElement = useRef<Element | null>(null);
 
@@ -107,12 +112,7 @@ export function Modal({ isOpen, onClose, title, children, className }: ModalProp
             <h2 id="modal-title" className="text-lg font-semibold">
               {title}
             </h2>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onClose}
-              aria-label="Close modal"
-            >
+            <Button variant="ghost" size="sm" onClick={onClose} aria-label="Close modal">
               ✕
             </Button>
           </div>

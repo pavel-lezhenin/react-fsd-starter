@@ -9,7 +9,12 @@ interface DropdownProps {
   readonly className?: string;
 }
 
-export function Dropdown({ trigger, children, align = 'left', className }: DropdownProps): JSX.Element {
+export function Dropdown({
+  trigger,
+  children,
+  align = 'left',
+  className,
+}: DropdownProps): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

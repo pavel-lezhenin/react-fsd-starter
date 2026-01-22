@@ -1,4 +1,3 @@
-
 import { useNavigate } from 'react-router-dom';
 
 import { useSessionStore } from '@features/session';
@@ -41,19 +40,25 @@ export default function AdminDashboard(): JSX.Element {
           <Card>
             <CardHeader>
               <CardDescription>Total Users</CardDescription>
-              <CardTitle as="h2" className="text-3xl">1,234</CardTitle>
+              <CardTitle as="h2" className="text-3xl">
+                1,234
+              </CardTitle>
             </CardHeader>
           </Card>
           <Card>
             <CardHeader>
               <CardDescription>Active Sessions</CardDescription>
-              <CardTitle as="h2" className="text-3xl">567</CardTitle>
+              <CardTitle as="h2" className="text-3xl">
+                567
+              </CardTitle>
             </CardHeader>
           </Card>
           <Card>
             <CardHeader>
               <CardDescription>Revenue</CardDescription>
-              <CardTitle as="h2" className="text-3xl">$12,345</CardTitle>
+              <CardTitle as="h2" className="text-3xl">
+                $12,345
+              </CardTitle>
             </CardHeader>
           </Card>
         </div>

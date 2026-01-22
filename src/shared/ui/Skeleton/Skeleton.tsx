@@ -38,7 +38,7 @@ export function Skeleton({
 
 export function SkeletonCard(): JSX.Element {
   return (
-    <div className="rounded-lg border p-4 space-y-3">
+    <div className="space-y-3 rounded-lg border p-4">
       <Skeleton variant="text" width="60%" />
       <Skeleton variant="text" />
       <Skeleton variant="text" width="80%" />

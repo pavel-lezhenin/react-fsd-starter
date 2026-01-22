@@ -65,10 +65,18 @@ export const Right: Story = {
 export const AllPositions: Story = {
   render: () => (
     <div className="flex gap-8">
-      <Tooltip content="Top" position="top"><Button variant="outline">Top</Button></Tooltip>
-      <Tooltip content="Bottom" position="bottom"><Button variant="outline">Bottom</Button></Tooltip>
-      <Tooltip content="Left" position="left"><Button variant="outline">Left</Button></Tooltip>
-      <Tooltip content="Right" position="right"><Button variant="outline">Right</Button></Tooltip>
+      <Tooltip content="Top" position="top">
+        <Button variant="outline">Top</Button>
+      </Tooltip>
+      <Tooltip content="Bottom" position="bottom">
+        <Button variant="outline">Bottom</Button>
+      </Tooltip>
+      <Tooltip content="Left" position="left">
+        <Button variant="outline">Left</Button>
+      </Tooltip>
+      <Tooltip content="Right" position="right">
+        <Button variant="outline">Right</Button>
+      </Tooltip>
     </div>
   ),
 };

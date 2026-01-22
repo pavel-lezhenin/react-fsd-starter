@@ -119,6 +119,29 @@ VITE_ENABLE_MSW=true
 - `/cabinet` — Personal cabinet (protected)
 - `/admin` — Admin dashboard (admin only)
 
+## Testing
+
+Tests use **co-location** pattern (next to source files):
+
+```
+src/
+├── shared/
+│   ├── hooks/
+│   │   ├── useDisclosure.ts
+│   │   └── useDisclosure.test.ts     ← Unit test
+│   └── ui/
+│       └── Button/
+│           ├── Button.tsx
+│           └── Button.test.tsx       ← Component test
+├── tests/
+│   └── setup.ts                     ← Test configuration
+└── e2e/
+    ├── auth.spec.ts                 ← E2E tests
+    └── landing.spec.ts
+```
+
+**Coverage requirement:** 80% (lines, functions, branches, statements)
+
 ## License
 
 MIT

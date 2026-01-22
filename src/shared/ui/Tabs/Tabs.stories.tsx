@@ -50,7 +50,9 @@ export const WithDisabledTab: Story = {
       <TabsList>
         <TabsTrigger value="active">Active</TabsTrigger>
         <TabsTrigger value="pending">Pending</TabsTrigger>
-        <TabsTrigger value="archived" disabled>Archived</TabsTrigger>
+        <TabsTrigger value="archived" disabled>
+          Archived
+        </TabsTrigger>
       </TabsList>
       <TabsContent value="active">Active content</TabsContent>
       <TabsContent value="pending">Pending content</TabsContent>

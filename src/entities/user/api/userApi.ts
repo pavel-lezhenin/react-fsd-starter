@@ -1,6 +1,5 @@
-
-import type { UseQueryResult } from '@tanstack/react-query';
-import { useQuery } from '@tanstack/react-query';
+import type { UseQueryResult, UseMutationResult } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { apiClient } from '@shared/api';
 import { API_ENDPOINTS } from '@shared/config';
@@ -35,5 +34,32 @@ export function useUser(id: string): UseQueryResult<UserResponse> {
     queryKey: ['user', id],
     queryFn: () => apiClient.get<UserResponse>(API_ENDPOINTS.USERS.BY_ID(id)),
     enabled: !!id,
+  });
+}
+
+// Function for getting current user profile
+export function useUserProfile(): UseQueryResult<User> {
+  return useQuery({
+    queryKey: ['user', 'profile'],
+    queryFn: async () => {
+      const response = await apiClient.get<{ data: User }>('/user/profile');
+      return response.data;
+    },
+  });
+}
+
+// Function for updating user profile
+export function useUpdateProfile(): UseMutationResult<User, Error, Partial<User>> {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (userData: Partial<User>) => {
+      const response = await apiClient.put<{ data: User }>('/user/profile', userData);
+      return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate user profile query to refetch data
+      void queryClient.invalidateQueries({ queryKey: ['user', 'profile'] });
+    },
   });
 }

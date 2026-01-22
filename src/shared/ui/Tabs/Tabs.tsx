@@ -59,7 +59,12 @@ interface TabsTriggerProps {
   readonly disabled?: boolean;
 }
 
-export function TabsTrigger({ value, children, className, disabled }: TabsTriggerProps): JSX.Element {
+export function TabsTrigger({
+  value,
+  children,
+  className,
+  disabled,
+}: TabsTriggerProps): JSX.Element {
   const { activeTab, setActiveTab } = useTabsContext();
   const isActive = activeTab === value;
 
@@ -98,11 +103,7 @@ export function TabsContent({ value, children, className }: TabsContentProps): J
   if (activeTab !== value) return null;
 
   return (
-    <div
-      role="tabpanel"
-      id={`tabpanel-${value}`}
-      className={cn('mt-4', className)}
-    >
+    <div role="tabpanel" id={`tabpanel-${value}`} className={cn('mt-4', className)}>
       {children}
     </div>
   );

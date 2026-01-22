@@ -1,4 +1,3 @@
-
 import { http, HttpResponse, delay } from 'msw';
 
 import { API_ENDPOINTS } from '@shared/config';
@@ -40,10 +39,7 @@ export const authHandlers = [
     const user = mockUsers.find((u) => u.email === body.email);
 
     if (!user || body.password.length < 6) {
-      return HttpResponse.json(
-        { message: 'Invalid email or password' },
-        { status: 401 }
-      );
+      return HttpResponse.json({ message: 'Invalid email or password' }, { status: 401 });
     }
 
     return HttpResponse.json({
@@ -59,10 +55,7 @@ export const authHandlers = [
     const body = (await request.json()) as RegisterRequest;
 
     if (mockUsers.some((u) => u.email === body.email)) {
-      return HttpResponse.json(
-        { message: 'Email already exists' },
-        { status: 400 }
-      );
+      return HttpResponse.json({ message: 'Email already exists' }, { status: 400 });
     }
 
     const newUser: User = {

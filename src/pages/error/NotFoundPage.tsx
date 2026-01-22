@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '@shared/config';
 import { Button } from '@shared/ui';
 
-
 export default function NotFoundPage(): JSX.Element {
   return (
     <main id="main-content" className="flex min-h-screen flex-col items-center justify-center px-4">

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 
 import { ROUTES } from '@shared/config';
@@ -23,12 +22,10 @@ export default function LandingPage(): JSX.Element {
       </header>
 
       <section className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
-        <h1 className="mb-6 text-5xl font-bold">
-          Enterprise-Ready React Template
-        </h1>
+        <h1 className="mb-6 text-5xl font-bold">Enterprise-Ready React Template</h1>
         <p className="mb-8 max-w-2xl text-lg text-secondary">
-          Feature-Sliced Design architecture, TypeScript, Tailwind CSS, 
-          and all the best practices for building scalable applications.
+          Feature-Sliced Design architecture, TypeScript, Tailwind CSS, and all the best practices
+          for building scalable applications.
         </p>
         <div className="flex gap-4">
           <Link to={ROUTES.REGISTER}>

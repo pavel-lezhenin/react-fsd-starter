@@ -8,7 +8,6 @@ import { useToast } from '@features/toast';
 import { ROUTES } from '@shared/config';
 import { Button, Input } from '@shared/ui';
 
-
 const registerSchema = z
   .object({
     name: z.string().min(2, 'Name must be at least 2 characters'),

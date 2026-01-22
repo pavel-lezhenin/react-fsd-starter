@@ -18,13 +18,22 @@ const sizeStyles = {
   xl: 'h-20 w-20 text-lg',
 };
 
-export function Avatar({ src, alt, fallback, size = 'md', className, ...props }: AvatarProps): JSX.Element {
-  const initials = fallback ?? alt
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
+export function Avatar({
+  src,
+  alt,
+  fallback,
+  size = 'md',
+  className,
+  ...props
+}: AvatarProps): JSX.Element {
+  const initials =
+    fallback ??
+    alt
+      .split(' ')
+      .map((n) => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
 
   if (src) {
     return (
@@ -66,7 +75,7 @@ export function AvatarGroup({ children, max = 4, size = 'md' }: AvatarGroupProps
   return (
     <div className="flex -space-x-2">
       {visibleChildren.map((child, index) => (
-        <div key={index} className="ring-2 ring-background rounded-full">
+        <div key={index} className="rounded-full ring-2 ring-background">
           {child}
         </div>
       ))}

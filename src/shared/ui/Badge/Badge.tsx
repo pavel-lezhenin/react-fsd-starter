@@ -17,7 +17,12 @@ const variantStyles: Record<BadgeVariant, string> = {
   outline: 'border border-secondary/30 text-secondary',
 };
 
-export function Badge({ variant = 'default', children, className, ...props }: BadgeProps): JSX.Element {
+export function Badge({
+  variant = 'default',
+  children,
+  className,
+  ...props
+}: BadgeProps): JSX.Element {
   return (
     <span
       className={cn(

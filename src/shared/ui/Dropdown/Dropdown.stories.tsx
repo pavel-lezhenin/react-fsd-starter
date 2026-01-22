@@ -24,9 +24,7 @@ export const Default: Story = {
       <DropdownItem>Settings</DropdownItem>
       <DropdownItem>Billing</DropdownItem>
       <DropdownSeparator />
-      <DropdownItem destructive>
-        Logout
-      </DropdownItem>
+      <DropdownItem destructive>Logout</DropdownItem>
     </Dropdown>
   ),
 };

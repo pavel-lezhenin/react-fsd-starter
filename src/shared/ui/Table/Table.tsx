@@ -9,10 +9,7 @@ interface TableProps extends HTMLAttributes<HTMLTableElement> {
 export function Table({ children, className, ...props }: TableProps): JSX.Element {
   return (
     <div className="relative w-full overflow-auto">
-      <table
-        className={cn('w-full caption-bottom text-sm', className)}
-        {...props}
-      >
+      <table className={cn('w-full caption-bottom text-sm', className)} {...props}>
         {children}
       </table>
     </div>
@@ -86,10 +83,7 @@ interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 
 export function TableCell({ children, className, ...props }: TableCellProps): JSX.Element {
   return (
-    <td
-      className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)}
-      {...props}
-    >
+    <td className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)} {...props}>
       {children}
     </td>
   );
