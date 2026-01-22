@@ -1,7 +1,9 @@
 import { StrictMode } from 'react';
+
 import { createRoot } from 'react-dom/client';
 
 import { App } from '@app/App';
+
 
 import '@app/styles/index.css';
 
@@ -22,7 +24,7 @@ if (!root) {
   throw new Error('Root element not found');
 }
 
-enableMocking().then(() => {
+void enableMocking().then(() => {
   createRoot(root).render(
     <StrictMode>
       <App />

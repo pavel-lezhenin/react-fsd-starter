@@ -1,12 +1,13 @@
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { z } from 'zod';
 
-import { Button, Input } from '@shared/ui';
-import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { useToast } from '@features/toast';
+import { ROUTES } from '@shared/config';
+import { Button, Input } from '@shared/ui';
+
 
 const loginSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -19,7 +20,7 @@ export default function LoginPage(): JSX.Element {
   const navigate = useNavigate();
   const location = useLocation();
   const setSession = useSessionStore((state) => state.setSession);
-  const { success, error: showError } = useToast();
+  const { success } = useToast();
 
   const from = (location.state as { from?: { pathname: string } })?.from?.pathname ?? ROUTES.CABINET;
 
@@ -31,23 +32,23 @@ export default function LoginPage(): JSX.Element {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = async (data: LoginFormData): Promise<void> => {
-    try {
-      // Mock login - replace with actual API call
-      const mockUser = {
-        id: '1',
-        email: data.email,
-        name: 'John Doe',
-        role: 'user' as const,
-        createdAt: new Date().toISOString(),
-      };
+  const onSubmit = (data: LoginFormData): void => {
+    // Mock login - replace with actual API call
+    const mockUser = {
+      id: '1',
+      email: data.email,
+      name: 'John Doe',
+      role: 'user' as const,
+      createdAt: new Date().toISOString(),
+    };
 
-      setSession(mockUser, 'mock-token', 3600);
-      success('Successfully logged in!');
-      navigate(from, { replace: true });
-    } catch {
-      showError('Invalid email or password');
-    }
+    setSession(mockUser, 'mock-token', 3600);
+    success('Successfully logged in!');
+    navigate(from, { replace: true });
+  };
+
+  const handleFormSubmit = (event: React.FormEvent): void => {
+    void handleSubmit(onSubmit)(event);
   };
 
   return (
@@ -58,7 +59,7 @@ export default function LoginPage(): JSX.Element {
           <p className="mt-2 text-secondary">Sign in to your account</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleFormSubmit} className="space-y-6">
           <Input
             label="Email"
             type="email"

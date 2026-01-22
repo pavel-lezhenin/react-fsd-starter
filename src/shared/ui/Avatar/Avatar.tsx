@@ -1,3 +1,4 @@
+import React from 'react';
 import type { ImgHTMLAttributes } from 'react';
 
 import { cn } from '@shared/lib';
@@ -82,5 +83,3 @@ export function AvatarGroup({ children, max = 4, size = 'md' }: AvatarGroupProps
     </div>
   );
 }
-
-import React from 'react';

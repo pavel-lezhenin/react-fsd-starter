@@ -5,7 +5,7 @@ import { cn } from '@shared/lib';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   readonly label?: string;
-  readonly error?: string;
+  readonly error?: string | undefined;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(

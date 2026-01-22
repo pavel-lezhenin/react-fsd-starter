@@ -1,5 +1,5 @@
-import type { User } from '@shared/types';
 import { cn } from '@shared/lib';
+import type { User } from '@shared/types';
 
 import { UserAvatar } from './UserAvatar';
 

@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
 
 import { cn } from '@shared/lib';
-import { Button } from '@shared/ui/Button';
 
 interface DropdownProps {
   readonly trigger: ReactNode;
@@ -36,9 +35,29 @@ export function Dropdown({ trigger, children, align = 'left', className }: Dropd
     };
   }, []);
 
+  const handleToggle = (): void => {
+    setIsOpen((prev) => !prev);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent): void => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setIsOpen((prev) => !prev);
+    }
+  };
+
   return (
     <div ref={dropdownRef} className={cn('relative inline-block', className)}>
-      <div onClick={() => setIsOpen((prev) => !prev)}>{trigger}</div>
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={handleToggle}
+        onKeyDown={handleKeyDown}
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
+      >
+        {trigger}
+      </div>
 
       {isOpen && (
         <div

@@ -30,8 +30,10 @@ class ApiClient {
     });
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({ message: 'Request failed' }));
-      throw new ApiClientError(error.message, response.status, error.errors);
+      const error = (await response
+        .json()
+        .catch(() => ({ message: 'Request failed' }))) as { message?: string; errors?: Record<string, string[]> };
+      throw new ApiClientError(error.message ?? 'Request failed', response.status, error.errors);
     }
 
     return response.json() as Promise<T>;
@@ -45,7 +47,7 @@ class ApiClient {
     return this.request<T>(endpoint, {
       ...config,
       method: 'POST',
-      body: data ? JSON.stringify(data) : undefined,
+      body: data ? JSON.stringify(data) : null,
     });
   }
 
@@ -53,7 +55,7 @@ class ApiClient {
     return this.request<T>(endpoint, {
       ...config,
       method: 'PUT',
-      body: data ? JSON.stringify(data) : undefined,
+      body: data ? JSON.stringify(data) : null,
     });
   }
 

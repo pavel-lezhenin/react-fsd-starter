@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Dropdown, DropdownItem, DropdownSeparator, DropdownLabel } from './Dropdown';
 import { Button } from '@shared/ui/Button';
+
+import { Dropdown, DropdownItem, DropdownSeparator, DropdownLabel } from './Dropdown';
 
 const meta: Meta<typeof Dropdown> = {
   title: 'Shared/UI/Dropdown',
@@ -19,11 +20,11 @@ export const Default: Story = {
   render: () => (
     <Dropdown trigger={<Button variant="outline">Open Menu</Button>}>
       <DropdownLabel>My Account</DropdownLabel>
-      <DropdownItem onClick={() => console.log('Profile')}>Profile</DropdownItem>
-      <DropdownItem onClick={() => console.log('Settings')}>Settings</DropdownItem>
-      <DropdownItem onClick={() => console.log('Billing')}>Billing</DropdownItem>
+      <DropdownItem>Profile</DropdownItem>
+      <DropdownItem>Settings</DropdownItem>
+      <DropdownItem>Billing</DropdownItem>
       <DropdownSeparator />
-      <DropdownItem destructive onClick={() => console.log('Logout')}>
+      <DropdownItem destructive>
         Logout
       </DropdownItem>
     </Dropdown>

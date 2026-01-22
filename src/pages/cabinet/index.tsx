@@ -1,9 +1,10 @@
+
 import { useNavigate } from 'react-router-dom';
 
-import { Button, Card, CardHeader, CardTitle, CardContent } from '@shared/ui';
-import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { useToast } from '@features/toast';
+import { ROUTES } from '@shared/config';
+import { Button, Card, CardHeader, CardTitle, CardContent } from '@shared/ui';
 import { MainLayout } from '@widgets/layout';
 
 export default function CabinetPage(): JSX.Element {

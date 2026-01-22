@@ -1,12 +1,13 @@
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { z } from 'zod';
 
-import { Button, Input } from '@shared/ui';
-import { ROUTES } from '@shared/config';
 import { useSessionStore } from '@features/session';
 import { useToast } from '@features/toast';
+import { ROUTES } from '@shared/config';
+import { Button, Input } from '@shared/ui';
+
 
 const registerSchema = z
   .object({
@@ -25,7 +26,7 @@ type RegisterFormData = z.infer<typeof registerSchema>;
 export default function RegisterPage(): JSX.Element {
   const navigate = useNavigate();
   const setSession = useSessionStore((state) => state.setSession);
-  const { success, error: showError } = useToast();
+  const { success } = useToast();
 
   const {
     register,
@@ -35,23 +36,23 @@ export default function RegisterPage(): JSX.Element {
     resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit = async (data: RegisterFormData): Promise<void> => {
-    try {
-      // Mock registration - replace with actual API call
-      const mockUser = {
-        id: '1',
-        email: data.email,
-        name: data.name,
-        role: 'user' as const,
-        createdAt: new Date().toISOString(),
-      };
+  const onSubmit = (data: RegisterFormData): void => {
+    // Mock registration - replace with actual API call
+    const mockUser = {
+      id: '1',
+      email: data.email,
+      name: data.name,
+      role: 'user' as const,
+      createdAt: new Date().toISOString(),
+    };
 
-      setSession(mockUser, 'mock-token', 3600);
-      success('Account created successfully!');
-      navigate(ROUTES.CABINET, { replace: true });
-    } catch {
-      showError('Failed to create account');
-    }
+    setSession(mockUser, 'mock-token', 3600);
+    success('Account created successfully!');
+    navigate(ROUTES.CABINET, { replace: true });
+  };
+
+  const handleFormSubmit = (event: React.FormEvent): void => {
+    void handleSubmit(onSubmit)(event);
   };
 
   return (
@@ -62,7 +63,7 @@ export default function RegisterPage(): JSX.Element {
           <p className="mt-2 text-secondary">Get started with your free account</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleFormSubmit} className="space-y-6">
           <Input
             label="Name"
             placeholder="John Doe"

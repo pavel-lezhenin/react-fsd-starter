@@ -1,10 +1,11 @@
+
 import { Link, useLocation } from 'react-router-dom';
 
+import { UserAvatar } from '@entities/user';
+import { useSessionStore } from '@features/session';
+import { ROUTES } from '@shared/config';
 import { cn } from '@shared/lib';
 import { Button } from '@shared/ui';
-import { ROUTES } from '@shared/config';
-import { useSessionStore } from '@features/session';
-import { UserAvatar } from '@entities/user';
 import { ThemeSwitcher } from '@widgets/theme-switcher';
 
 export function Header(): JSX.Element {

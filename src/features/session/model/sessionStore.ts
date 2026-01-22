@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 
 import type { User } from '@shared/types';
 
+
 interface SessionState {
   user: User | null;
   accessToken: string | null;

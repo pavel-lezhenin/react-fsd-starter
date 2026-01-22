@@ -1,3 +1,4 @@
+import type { UseMutationResult } from '@tanstack/react-query';
 import { useMutation } from '@tanstack/react-query';
 
 import { apiClient } from '@shared/api';
@@ -21,21 +22,21 @@ interface AuthResponse {
   expiresIn: number;
 }
 
-export function useLogin() {
+export function useLogin(): UseMutationResult<AuthResponse, Error, LoginRequest> {
   return useMutation({
     mutationFn: (data: LoginRequest) =>
       apiClient.post<AuthResponse>(API_ENDPOINTS.AUTH.LOGIN, data),
   });
 }
 
-export function useRegister() {
+export function useRegister(): UseMutationResult<AuthResponse, Error, RegisterRequest> {
   return useMutation({
     mutationFn: (data: RegisterRequest) =>
       apiClient.post<AuthResponse>(API_ENDPOINTS.AUTH.REGISTER, data),
   });
 }
 
-export function useLogout() {
+export function useLogout(): UseMutationResult<void, Error, void> {
   return useMutation({
     mutationFn: () => apiClient.post(API_ENDPOINTS.AUTH.LOGOUT),
   });

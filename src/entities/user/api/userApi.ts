@@ -1,3 +1,5 @@
+
+import type { UseQueryResult } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
 
 import { apiClient } from '@shared/api';
@@ -18,7 +20,7 @@ interface UserResponse {
   user: User;
 }
 
-export function useUsers(page = 1, limit = 10) {
+export function useUsers(page = 1, limit = 10): UseQueryResult<UsersResponse> {
   return useQuery({
     queryKey: ['users', page, limit],
     queryFn: () =>
@@ -28,7 +30,7 @@ export function useUsers(page = 1, limit = 10) {
   });
 }
 
-export function useUser(id: string) {
+export function useUser(id: string): UseQueryResult<UserResponse> {
   return useQuery({
     queryKey: ['user', id],
     queryFn: () => apiClient.get<UserResponse>(API_ENDPOINTS.USERS.BY_ID(id)),

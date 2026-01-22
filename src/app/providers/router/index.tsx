@@ -1,8 +1,9 @@
 import { lazy } from 'react';
+
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { ProtectedRoute } from './ProtectedRoute';
 import { AdminRoute } from './AdminRoute';
+import { ProtectedRoute } from './ProtectedRoute';
 
 const LandingPage = lazy(() => import('@pages/landing'));
 const LoginPage = lazy(() => import('@pages/auth/LoginPage'));

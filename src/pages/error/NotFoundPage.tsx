@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import { Button } from '@shared/ui';
 import { ROUTES } from '@shared/config';
+import { Button } from '@shared/ui';
+
 
 export default function NotFoundPage(): JSX.Element {
   return (

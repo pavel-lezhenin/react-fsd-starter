@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
 
-import { useToastStore, type Toast } from '../model';
 import { cn } from '@shared/lib';
+
+import { useToastStore, type Toast } from '../model';
 
 const typeStyles: Record<Toast['type'], string> = {
   success: 'bg-success text-white',
